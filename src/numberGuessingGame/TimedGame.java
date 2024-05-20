@@ -45,6 +45,6 @@ public class TimedGame extends NumberGame {
 			return 60;
 		else if (difficulty == 2)
 			return 45;
-		return 3;
+		return 30;
 	}
 }

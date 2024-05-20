@@ -34,7 +34,7 @@ public class NumberGame {int attempts = 0;
 	public void winGame() {
 		this.win = true;
 		System.out.println("You guessed the number!!!");
-		System.out.println("You guessed the number in " + this.attempts + " guesses");
+		System.out.println("It took you " + this.attempts + " guesses");
 	}
 
 	public void loseGame() {
@@ -68,8 +68,8 @@ public class NumberGame {int attempts = 0;
 		if (difficulty == 1)
 			return 10;
 		else if (difficulty == 2)
-			return 9;
-		else
 			return 8;
+		else
+			return 7;
 	}
 }
