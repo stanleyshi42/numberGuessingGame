@@ -2,7 +2,8 @@ package numberGuessingGame;
 
 import java.util.Random;
 
-public class NumberGame {int attempts = 0;
+public class NumberGame {
+	int attempts = 0;
 	int answer;
 	int guessesRemaining; // Number of guesses the player gets
 	int highestAns; // Highest possible answer
