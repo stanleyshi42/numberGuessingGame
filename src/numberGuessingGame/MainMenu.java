@@ -18,6 +18,9 @@ public class MainMenu {
 
 				int input = sc.nextInt();
 
+				if (input < 1 || input > 4)
+					throw new InputMismatchException();
+
 				if (input == 4)
 					System.exit(0);
 
@@ -41,10 +44,10 @@ public class MainMenu {
 				}
 			} catch (InputMismatchException e) {
 				System.out.println("Error: Invalid input");
-				sc.nextLine(); // Clear scanner buffer
+				sc.nextLine();
 			} catch (Exception e) {
 				e.printStackTrace();
-				sc.nextLine(); // Clear scanner buffer
+				sc.nextLine();
 			}
 		}
 	}

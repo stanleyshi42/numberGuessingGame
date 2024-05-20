@@ -2,8 +2,6 @@ package tests;
 
 import static org.junit.Assert.*;
 import org.junit.jupiter.api.Test;
-
-import numberGuessingGame.GameMenu;
 import numberGuessingGame.NumberGame;
 
 public class NumberGameTest {
@@ -13,15 +11,15 @@ public class NumberGameTest {
 	public void testGenerateAnswer() {
 		int rand;
 		for (int i = 0; i < 5000; i++) {
-			rand = NumberGame.generateHighestAnswer(1);
+			rand = NumberGame.generateAnswer(1);
 			assertTrue(rand > 0 && rand < 51);
 		}
 		for (int i = 0; i < 10000; i++) {
-			rand = NumberGame.generateHighestAnswer(2);
+			rand = NumberGame.generateAnswer(2);
 			assertTrue(rand > 0 && rand < 101);
 		}
 		for (int i = 0; i < 50000; i++) {
-			rand = NumberGame.generateHighestAnswer(3);
+			rand = NumberGame.generateAnswer(3);
 			assertTrue(rand > 0 && rand < 501);
 		}
 	}

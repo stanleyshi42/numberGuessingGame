@@ -22,22 +22,24 @@ public class TimedGame extends NumberGame {
 
 	}
 
-	public void countdown() {
-		if(this.win || this.lose) 
+	private void countdown() {
+		if (this.win || this.lose)
 			this.timer.cancel();
-					
-		if (this.timeRemaining % 10 == 0)
-			System.out.println("Time remaining: " + this.timeRemaining);
-		this.timeRemaining--;
 
 		// Print the timer every 10 seconds
+		if (this.timeRemaining % 10 == 0)
+			System.out.println("Time remaining: " + this.timeRemaining);
+
+		this.timeRemaining--;
+
 		if (this.timeRemaining <= 0) {
-			//this.timer.cancel();
+			this.timer.cancel();
+			System.out.println("Out of time!");
 			loseGame();
 		}
 	}
 
-	public int generateTimeRemaining(int difficulty) {
+	private int generateTimeRemaining(int difficulty) {
 		if (difficulty == 1)
 			return 60;
 		else if (difficulty == 2)

@@ -15,7 +15,7 @@ public class NumberGame {
 	NumberGame(int difficulty) {
 		this.answer = generateAnswer(difficulty);
 		this.highestAns = generateHighestAnswer(difficulty);
-		this.guessesRemaining = getGuesses(difficulty);
+		this.guessesRemaining = generateGuesses(difficulty);
 	}
 
 	// Processes the player's guess
@@ -38,20 +38,12 @@ public class NumberGame {
 		this.win = true;
 		System.out.println("You guessed the number!!!");
 		System.out.println("You guessed the number in " + this.attempts + " guesses");
-		System.out.println("Hit enter to return");
-		sc.nextLine();
-
-		MainMenu.mainMenu(); // Return to main menu
 	}
 
 	public void loseGame() {
 		this.lose = true;
 		System.out.println("You lose!");
 		System.out.println("The number was " + this.answer);
-		System.out.println("Hit enter to return");
-		sc.nextLine();
-
-		MainMenu.mainMenu(); // Return to main menu
 	}
 
 	// Generates a random answer based on the difficulty
@@ -59,11 +51,11 @@ public class NumberGame {
 		Random rand = new Random();
 
 		if (difficulty == 1)
-			return rand.nextInt(49) + 1; // 1-50
+			return rand.nextInt(50) + 1; // 1-50
 		else if (difficulty == 2)
-			return rand.nextInt(99) + 1; // 1-100
+			return rand.nextInt(100) + 1; // 1-100
 		else
-			return rand.nextInt(499) + 1; // 1-500
+			return rand.nextInt(500) + 1; // 1-500
 	}
 
 	public static int generateHighestAnswer(int difficulty) {
@@ -75,7 +67,7 @@ public class NumberGame {
 			return 500;
 	}
 
-	public static int getGuesses(int difficulty) {
+	public static int generateGuesses(int difficulty) {
 		if (difficulty == 1)
 			return 10;
 		else if (difficulty == 2)
