@@ -4,8 +4,13 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class GameMenu {
-	public static void gameMenu(int difficulty) {
-		NumberGame game = new NumberGame(difficulty);
+	public static void gameMenu(int difficulty, int timed) {
+		NumberGame game;
+		if (timed == 1) {
+			game = new TimedGame(difficulty);
+		} else {
+			game = new NumberGame(difficulty);
+		}
 		Scanner sc = new Scanner(System.in);
 
 		while (true) {

@@ -21,15 +21,20 @@ public class MainMenu {
 				if (input == 4)
 					System.exit(0);
 
+				System.out.println("Would you like to add a time limit?");
+				System.out.println("1. Yes");
+				System.out.println("2. No");
+				int timed = sc.nextInt();
+
 				switch (input) {
 				case (1):
-					GameMenu.gameMenu(1);
+					GameMenu.gameMenu(1, timed);
 					break;
 				case (2):
-					GameMenu.gameMenu(2);
+					GameMenu.gameMenu(2, timed);
 					break;
 				case (3):
-					GameMenu.gameMenu(3);
+					GameMenu.gameMenu(3, timed);
 					break;
 				default:
 					throw new InputMismatchException();

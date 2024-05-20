@@ -2,7 +2,6 @@ package numberGuessingGame;
 
 import java.util.Random;
 
-// Tracks the game's state
 public class NumberGame {
 	int attempts = 0;
 	int answer;
