@@ -1,6 +1,7 @@
 package numberGuessingGame;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class NumberGame {
 	int attempts = 0;
@@ -9,6 +10,7 @@ public class NumberGame {
 	int highestAns; // Highest possible answer
 	boolean win = false;
 	boolean lose = false;
+	Scanner sc = new Scanner(System.in);
 
 	NumberGame(int difficulty) {
 		this.answer = generateAnswer(difficulty);
@@ -26,10 +28,30 @@ public class NumberGame {
 		else if (guess > this.answer)
 			System.out.println("Your guess is higher!");
 		else if (guess == this.answer)
-			this.win = true;
+			winGame();
 
 		if (this.guessesRemaining <= 0)
-			this.lose = true;
+			loseGame();
+	}
+
+	public void winGame() {
+		this.win = true;
+		System.out.println("You guessed the number!!!");
+		System.out.println("You guessed the number in " + this.attempts + " guesses");
+		System.out.println("Hit enter to return");
+		sc.nextLine();
+
+		MainMenu.mainMenu(); // Return to main menu
+	}
+
+	public void loseGame() {
+		this.lose = true;
+		System.out.println("You lose!");
+		System.out.println("The number was " + this.answer);
+		System.out.println("Hit enter to return");
+		sc.nextLine();
+
+		MainMenu.mainMenu(); // Return to main menu
 	}
 
 	// Generates a random answer based on the difficulty

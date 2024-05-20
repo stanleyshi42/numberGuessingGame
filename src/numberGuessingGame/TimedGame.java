@@ -5,11 +5,14 @@ import java.util.TimerTask;
 
 public class TimedGame extends NumberGame {
 	int timeRemaining;
+	Timer timer;
 
 	TimedGame(int difficulty) {
 		super(difficulty);
 		this.timeRemaining = generateTimeRemaining(difficulty);
-		Timer timer = new Timer();
+		this.timer = new Timer();
+
+		// Executes the countdown function every second
 		timer.schedule(new TimerTask() {
 			@Override
 			public void run() {
@@ -20,14 +23,18 @@ public class TimedGame extends NumberGame {
 	}
 
 	public void countdown() {
+		if(this.win || this.lose) 
+			this.timer.cancel();
+					
 		if (this.timeRemaining % 10 == 0)
 			System.out.println("Time remaining: " + this.timeRemaining);
 		this.timeRemaining--;
 
 		// Print the timer every 10 seconds
-
-		if (this.timeRemaining <= 0)
-			this.lose = true;
+		if (this.timeRemaining <= 0) {
+			//this.timer.cancel();
+			loseGame();
+		}
 	}
 
 	public int generateTimeRemaining(int difficulty) {
