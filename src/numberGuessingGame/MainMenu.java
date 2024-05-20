@@ -7,29 +7,35 @@ public class MainMenu {
 		Scanner sc = new Scanner(System.in);
 
 		while (true) {
-			System.out.println("Welcome to the Number Guessing Game!");
-			System.out.println("Select a difficulty: ");
-			System.out.println("1. Easy");
-			System.out.println("2. Medium");
-			System.out.println("3. Hard");
-			System.out.println("4. End Program");
-		
-			int input = sc.nextInt();
+			try {
+				System.out.println("Welcome to the Number Guessing Game!");
+				System.out.println("Select a difficulty: ");
+				System.out.println("1. Easy");
+				System.out.println("2. Medium");
+				System.out.println("3. Hard");
+				System.out.println("4. End Program");
 
-			if (input == 4)
-				System.exit(0);
+				int input = sc.nextInt();
 
-			switch (input) {
-			case (1):
-				GameMenu.gameMenu(1);
-				break;
-			case (2):
-				GameMenu.gameMenu(2);
-				break;
-			case (3):
-				GameMenu.gameMenu(3);
-				break;
+				if (input == 4)
+					System.exit(0);
 
+				switch (input) {
+				case (1):
+					GameMenu.gameMenu(1);
+					break;
+				case (2):
+					GameMenu.gameMenu(2);
+					break;
+				case (3):
+					GameMenu.gameMenu(3);
+					break;
+				default:
+					throw new Exception();
+				}
+			} catch (Exception e) {
+				System.out.println("Error: Invalid input");
+				sc.nextLine(); // Clear scanner buffer
 			}
 		}
 	}
