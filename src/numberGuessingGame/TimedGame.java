@@ -11,6 +11,7 @@ public class TimedGame extends NumberGame {
 		super(difficulty);
 		this.timeRemaining = generateTimeRemaining(difficulty);
 		this.timer = new Timer();
+		System.out.println("Time remaining: " + this.timeRemaining);
 
 		// Executes the countdown function every second
 		timer.schedule(new TimerTask() {
@@ -26,11 +27,11 @@ public class TimedGame extends NumberGame {
 		if (this.win || this.lose)
 			this.timer.cancel();
 
+		this.timeRemaining--;
+
 		// Print the timer every 10 seconds
 		if (this.timeRemaining % 10 == 0)
 			System.out.println("Time remaining: " + this.timeRemaining);
-
-		this.timeRemaining--;
 
 		if (this.timeRemaining <= 0) {
 			this.timer.cancel();
@@ -39,11 +40,11 @@ public class TimedGame extends NumberGame {
 		}
 	}
 
-	private int generateTimeRemaining(int difficulty) {
+	public int generateTimeRemaining(int difficulty) {
 		if (difficulty == 1)
 			return 60;
 		else if (difficulty == 2)
 			return 45;
-		return 30;
+		return 3;
 	}
 }

@@ -1,16 +1,13 @@
 package numberGuessingGame;
 
 import java.util.Random;
-import java.util.Scanner;
 
-public class NumberGame {
-	int attempts = 0;
+public class NumberGame {int attempts = 0;
 	int answer;
 	int guessesRemaining; // Number of guesses the player gets
 	int highestAns; // Highest possible answer
 	boolean win = false;
 	boolean lose = false;
-	Scanner sc = new Scanner(System.in);
 
 	NumberGame(int difficulty) {
 		this.answer = generateAnswer(difficulty);

@@ -4,8 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class GameMenu {
-	public static void gameMenu(int difficulty, int timed) {
-		Scanner sc = new Scanner(System.in);
+	public static void gameMenu(Scanner sc, int difficulty, int timed) {
 		NumberGame game;
 		if (timed == 1) {
 			game = new TimedGame(difficulty);
@@ -33,10 +32,8 @@ public class GameMenu {
 
 			} catch (InputMismatchException e) {
 				System.out.println("Error: Invalid input");
-				sc.nextLine();
 			} catch (Exception e) {
 				e.printStackTrace();
-				sc.nextLine();
 			}
 		}
 	}

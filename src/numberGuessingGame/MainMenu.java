@@ -31,13 +31,13 @@ public class MainMenu {
 
 				switch (input) {
 				case (1):
-					GameMenu.gameMenu(1, timed);
+					GameMenu.gameMenu(sc, 1, timed);
 					break;
 				case (2):
-					GameMenu.gameMenu(2, timed);
+					GameMenu.gameMenu(sc, 2, timed);
 					break;
 				case (3):
-					GameMenu.gameMenu(3, timed);
+					GameMenu.gameMenu(sc, 3, timed);
 					break;
 				default:
 					throw new InputMismatchException();
