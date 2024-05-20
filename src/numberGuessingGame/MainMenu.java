@@ -1,5 +1,6 @@
 package numberGuessingGame;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MainMenu {
@@ -9,7 +10,7 @@ public class MainMenu {
 		while (true) {
 			try {
 				System.out.println("Welcome to the Number Guessing Game!");
-				System.out.println("Select a difficulty: ");
+				System.out.println("Select a difficulty:");
 				System.out.println("1. Easy");
 				System.out.println("2. Medium");
 				System.out.println("3. Hard");
@@ -31,10 +32,13 @@ public class MainMenu {
 					GameMenu.gameMenu(3);
 					break;
 				default:
-					throw new Exception();
+					throw new InputMismatchException();
 				}
-			} catch (Exception e) {
+			} catch (InputMismatchException e) {
 				System.out.println("Error: Invalid input");
+				sc.nextLine(); // Clear scanner buffer
+			} catch (Exception e) {
+				e.printStackTrace();
 				sc.nextLine(); // Clear scanner buffer
 			}
 		}
